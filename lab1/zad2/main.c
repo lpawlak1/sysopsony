@@ -30,34 +30,36 @@ double calc_time(clock_t s, clock_t e) {
 }
 
 void print_times(const char* operation){
-	printf("%20s   real %.3fs   user %.3fs   sys %.3fs\n",
-			operation,
-			calc_time(clock_t_begin, clock_t_end),
-			calc_time(times_start_buffer.tms_cutime, times_end_buffer.tms_cutime),
-			calc_time(times_start_buffer.tms_cstime, times_end_buffer.tms_cstime));
+	printf("%20s real %.3fs user %.3fs sys %.3fs\n",
+        operation,
+        calc_time(clock_t_begin, clock_t_end),
+        calc_time(times_start_buffer.tms_cutime, times_end_buffer.tms_cutime),
+        calc_time(times_start_buffer.tms_cstime, times_end_buffer.tms_cstime));
 }
 #endif
 
 
 int main(int argc, char** argv){
     #ifdef LIB_DYNAMIC
-        void *handle = dlopen("../zad1/diffLib.so", RTLD_LAZY);
+        void *handle = dlopen("../zad1/library.so", RTLD_LAZY);
         if (!handle) {
-            fprintf(stderr, "Cannot load dynamic library diffLib.so\n");
-            exit(1);
+            fprintf(stderr, "Cannot load library.so\n");
+            exit(4);
         }
-        
-        void (*create_main_block)(int) = (void (*)(int)) dlsym(handle, "create_main_block");
-        void (*define_pairs_sequence)(char**, int) = (void (*)(char**, int)) dlsym(handle, "define_pairs_sequence");
-        void (*compare_pairs)(void) = (void (*)(void)) dlsym(handle, "compare_pairs");
-        int (*get_operations_num_in_edition_block)(int) = (int (*)(int)) dlsym(handle, "get_operations_num_in_edition_block");
-        void (*remove_operation_block)(int) = (void (*)(int)) dlsym(handle, "remove_operation_block");
-        void (*remove_edition_operation_from_block)(int, int) = (void (*)(int, int)) dlsym(handle, "remove_edition_operation_from_block");
-        void (*free_block)(void) = (void (*)(void)) dlsym(handle, "free_block");
-        void (*__printData)(void) = (void (*)(void)) dlsym(handle, "__printData");
+
+        //void create_table(int size);
+        void (*create_table)(int) = (void (*)(int)) dlsym(handle, "create_table");
+        //void count(char** filenames, int len);
+        void (*count)(char**, int) = (void (*) (char**, int)) dlsym(handle, "count");
+        //int read_table_from_file();
+        int (*read_table_from_file)(void) = (int(*)(void)) dlsym(handle, "read_table_from_file");
+        //void free_table();
+        void (*free_table)(void) = (void(*)(void)) dlsym(handle, "free_table");
+        //void remove_block(int index);
+        void (*remove_block)(int) = (void(*)(int)) dlsym(handle, "remove_block");
 
         if (dlerror()) {
-            fprintf(stderr, "Cannot load functions from dynamic library libblocks.so\n");
+            fprintf(stderr, "Cannot load functions from library.so\n");
             exit(1);
         }
     #endif
@@ -83,8 +85,8 @@ int main(int argc, char** argv){
 		}
         
 		else if (strcmp(cmd, "wc_files") == 0) {
-			if (i + 2 >= argc) {
-				printf("compare_pairs expects two argument happily\n");
+			if (i + 1 >= argc) {
+				printf("This excects at least 2 arguments happily\n");
 				exit(1);
 			}
 
@@ -98,7 +100,8 @@ int main(int argc, char** argv){
                 if (strcmp(argv[cpy], "create_table") == 0 ||
                     strcmp(argv[cpy], "wc_files") == 0 ||
                     strcmp(argv[cpy], "remove_block") == 0 ||
-                    strcmp(argv[cpy], "") == 0){
+                    strcmp(argv[cpy], "stimer") == 0 ||
+                    strcmp(argv[cpy], "etimer") == 0){
                     break;
                 }
                 else {
@@ -107,13 +110,13 @@ int main(int argc, char** argv){
             }
 
             if (cnt == 0){
-                fprintf(stderr, "Expected argument after wc_lines not next command");
+                fprintf(stderr, "Expected argument after wc_lines not next command\n");
                 exit(4);
             }
 
             count(argv + i + 1, cnt);
             int next = read_table_from_file();
-            printf("nowy blok tutaj: %d", next);
+            printf("     New block here: %d\n", next);
             i = cpy-1;
         }
 
@@ -123,7 +126,6 @@ int main(int argc, char** argv){
 				exit(4);
 			}
             
-            //podjebane
 			int idx = atoi(argv[++i]);
 
 			remove_block(idx);
@@ -131,10 +133,10 @@ int main(int argc, char** argv){
         
         
 		#ifdef PERFORMANCE_TESTS
-		else if (strcmp(cmd, "start_timer") == 0) {
+		else if (strcmp(cmd, "stimer") == 0) {
 			start_timer();
 		}
-		else if (strcmp(cmd, "end_timer") == 0) {
+		else if (strcmp(cmd, "etimer") == 0) {
 			stop_timer();
 			print_times(argv[++i]);
 		}

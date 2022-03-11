@@ -1,10 +1,6 @@
 #define  _GNU_SOURCE
 #include "library.h"
-#include <fcntl.h>
 #include <stdio.h>
-#include <unistd.h> 
-#include <sys/stat.h>
-#include <errno.h>
 #include <stdlib.h>
 #include "string.h"
 
@@ -52,7 +48,6 @@ void count(char** filenames, int len){
     
     system(global_arr); //uruchom w system komende
 
-    fprintf(stdout, "[count], counted -> %s", global_arr);
 }
 
 int find_next_empty_block() {
@@ -137,6 +132,10 @@ void free_table(){
 void remove_block(int index){
     if (index >= wa->size){
         fprintf(stderr, "[remove_block] Index too big");
+        exit(4);
+    }
+    if (wa->arr[index] == NULL){
+        fprintf(stderr, "[remove_block] no data at this index mate");
         exit(4);
     }
     free(wa->arr[index]->arr);

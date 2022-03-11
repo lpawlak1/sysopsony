@@ -21,7 +21,6 @@ struct wrapped_arr {
 
 void create_table(int size);
 void count(char** filenames, int len);
-void save_table(struct wrapped_arr * filenames);
 int read_table_from_file();
 void free_table();
 void remove_block(int index);

@@ -1,0 +1,6 @@
+stimer
+create_table 1
+etimer create_table
+stimer
+wc_files ./files/small_1
+etimer wc_small

@@ -1,10 +1,6 @@
 CC = gcc -Wall -std=c11 -ggdb
 
-
 all: static shared clean
-
-test:
-	bash tests/tests.sh
 
 static:
 	$(CC) -c library.c
