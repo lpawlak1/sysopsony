@@ -91,7 +91,7 @@ int read_table_from_file(){
     if (wa->arr[i]->arr == NULL){
         fprintf(stderr, "[read_table_from_file] Unable to calloc entry_1->arr");
     }
-    
+
     fread(wa->arr[i]->arr, 1, size, fp);
     wa->arr[i]->arr[size] = '\0';
     

@@ -13,6 +13,7 @@
 
 #ifdef PERFORMANCE_TESTS
 #include <sys/times.h>
+#include <stdint.h>
 #include <unistd.h>
 clock_t clock_t_begin, clock_t_end;
 struct tms times_start_buffer, times_end_buffer;
@@ -26,7 +27,7 @@ void stop_timer(){
 }
 
 double calc_time(clock_t s, clock_t e) {
-    return ((long int) (e - s) / (double) sysconf(_SC_CLK_TCK));
+    return ((double) (e - s) / (double) sysconf(_SC_CLK_TCK));
 }
 
 void print_times(const char* operation){
@@ -37,7 +38,6 @@ void print_times(const char* operation){
         calc_time(times_start_buffer.tms_cstime, times_end_buffer.tms_cstime));
 }
 #endif
-
 
 int main(int argc, char** argv){
     #ifdef LIB_DYNAMIC
@@ -116,7 +116,7 @@ int main(int argc, char** argv){
 
             count(argv + i + 1, cnt);
             int next = read_table_from_file();
-            printf("     New block here: %d\n", next);
+//            printf("     New block here: %d\n", next);
             i = cpy-1;
         }
 
