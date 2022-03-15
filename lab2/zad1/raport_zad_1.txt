@@ -1,0 +1,10 @@
+BIBLIOTECZNE
+❯ time ./zad1 ../lab2/plik_testowy ../lab2/nowy_plik
+./zad1 ../lab2/plik_testowy ../lab2/nowy_plik  0,14s user 0,03s system 99% cpu 0,168 total
+
+SYSTEMOWE
+❯ time ./zad1 ../lab2/plik_testowy ../lab2/nowy_plik
+./zad1 ../lab2/plik_testowy ../lab2/nowy_plik  0,44s user 2,91s system 99% cpu 3,353 total
+
+
+Co mnie zdziwiło to fakt, że funkcje biblioteczne były szybsze od systemowych.

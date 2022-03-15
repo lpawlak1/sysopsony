@@ -1,0 +1,14 @@
+
+Biblioteczne
+
+real	0m0,115s
+user	0m0,115s
+sys	0m0,000s
+
+Systemowe
+
+real	0m2,395s
+user	0m0,304s
+sys	0m2,090s
+
+Widzę, że trend się nasila w tym miejscu. Funkcja biblioteczna jest szybsza
