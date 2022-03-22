@@ -139,7 +139,7 @@ int main(int argc, char* argv[]){
 
         printf("wynik: %f\nszerokosc prostokata: %f\n", wynik, atof(argv[1]));
         char * message = calloc(sizeof(char), 20);
-        sprintf(message, "ilosc wątków: %d\n", max);
+        sprintf(message, "ilosc procesów: %d\n", max);
         print_times(message);
         printf("\n");
         free(message);
