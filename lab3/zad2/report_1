@@ -1,0 +1,86 @@
+
+wynik: 3.203440
+szerokosc prostokata: 0.000000
+ ilosc procesów: 16
+ real 1.900s user 7.370s sys 0.000s
+
+wynik: 3.223767
+szerokosc prostokata: 0.000000
+ ilosc procesów: 12
+ real 1.830s user 7.180s sys 0.000s
+
+wynik: 3.217529
+szerokosc prostokata: 0.000000
+ ilosc procesów: 13
+ real 1.830s user 7.160s sys 0.010s
+
+wynik: 3.212171
+szerokosc prostokata: 0.000000
+ ilosc procesów: 14
+ real 1.870s user 7.210s sys 0.000s
+
+wynik: 3.207518
+szerokosc prostokata: 0.000000
+ ilosc procesów: 15
+ real 1.820s user 7.170s sys 0.010s
+
+wynik: 3.231126
+szerokosc prostokata: 0.000000
+ ilosc procesów: 11
+ real 1.810s user 7.180s sys 0.000s
+
+wynik: 3.239925
+szerokosc prostokata: 0.000000
+ ilosc procesów: 10
+ real 1.850s user 7.190s sys 0.000s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 0.020s user 0.060s sys 0.010s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 1.810s user 7.170s sys 0.000s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 0.030s user 0.070s sys 0.000s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 1.820s user 7.170s sys 0.000s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 1.840s user 7.170s sys 0.000s
+
+wynik: 3.250644
+szerokosc prostokata: 0.000001
+  ilosc procesów: 9
+ real 0.000s user 0.010s sys 0.000s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 2.100s user 7.210s sys 0.000s
+
+wynik: 3.250552
+szerokosc prostokata: 0.000100
+  ilosc procesów: 9
+ real 0.000s user 0.000s sys 0.000s
+
+wynik: 3.250645
+szerokosc prostokata: 0.000000
+  ilosc procesów: 9
+ real 1.810s user 7.170s sys 0.000s
+
+wynik: 3.250552
+szerokosc prostokata: 0.000100
+  ilosc procesów: 9
+ real 0.010s user 0.000s sys 0.000s
+
