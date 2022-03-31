@@ -34,7 +34,6 @@ void sigusr1_handle(int sigint) {
 
 int main(int argc, char** argv) {
 	if(argc != 3){
-		// printf("Usage: main [ignore|handler|mask|pending] [fork|exec]\n");
 		return 1;
 	}
 	int mode = get_mode_from_arg(argv[2]);

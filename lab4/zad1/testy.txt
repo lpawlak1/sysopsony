@@ -1,0 +1,20 @@
+ignore fork
+ignore exec
+SIGUSR1 ignored in child
+handler fork
+SIGUSR1 received
+SIGUSR1 received
+SIGUSR1 ignored in child
+SIGUSR1 received
+handler exec
+Bez przesady że handler exec poleciał, tak nie miało być...
+mask fork
+SIGUSR1 masked in child
+mask exec
+SIGUSR1 masked in child
+pending fork
+SIGUSR1 pending in tha parent: yes
+SIGUSR1 pending in tha child: no
+SIGUSR1 pending in tha parent: yes
+pending exec
+SIGUSR1 pending in child: yes

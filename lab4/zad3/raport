@@ -1,0 +1,10 @@
+ dla kill duzo sie gubi...
+ wyslalem 10000 sygnalow z sendera, 438 zostalo odebranych
+ a wróciły 2
+
+ szczerze dla sigqueue to jest dramat
+ zanim sender zdazy wyslac wszystkie sigqueue na SIGUSR1 to wyslal sigusr2
+ wiec catcher po prostu skonczyl dzialac wysylajac 0 sygnałow spowrotem (dlatego ze int nie zdazyl sie zaaktualizowac na 1)
+ a sigsuspend jest szybszy od handlera :(
+
+ woow, signały czasu rzeczywistego działają full legit, jeden po drugim wszystkie wysłane, wszystkie odebrane, wszystkie odebrane przez sendera :))))

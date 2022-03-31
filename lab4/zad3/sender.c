@@ -37,7 +37,6 @@ void sigusr1_handler(int signo, siginfo_t *info, void *context){
 	if(info->si_code == SI_USER){
         odebrane++;
         printf("SIGUSR1 received from child:)\n");
-		// printf("SIGUSR[1-2] tried killing (via kill) real user id: %d\n", info->si_uid);
 	}
 }
 
@@ -114,7 +113,7 @@ int main(int argc, char** argv) {
 
     sigset_t maska;
     sigemptyset(&maska);
-    sigaddset(&maska, SIGUSR2); // czekam na 2, bo na chuj czekac na 1
+    sigaddset(&maska, SIGUSR2); // czekam na 2, bo po co czekac na 1
     sigsuspend(&maska); // czekam na SIGUSR2
 
 

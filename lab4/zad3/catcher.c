@@ -38,7 +38,6 @@ void sigusr1_handler(int signo, siginfo_t *info, void *context){
 	if(info->si_code == SI_USER){
         odebrane++;
         printf("SIGUSR1 received from parent :)\n");
-		// printf("SIGUSR[1-2] tried killing (via kill) real user id: %d\n", info->si_uid);
 	}
 }
 
